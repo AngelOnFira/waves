@@ -2,23 +2,23 @@
 
 [ext_resource path="res://tilemap.jpg" type="Texture" id=1]
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 32.0062, -31.9834, 31.9985, 32.0109, -31.9897, 31.9996, -31.9841, -31.9905 )
-
-[sub_resource type="OccluderPolygon2D" id=4]
-
-closed = true
-cull_mode = 0
-polygon = Vector2Array( -32.0525, -31.8218, 32.0287, -32.048, 32.0174, 32.1807, -32.0454, 32.0425 )
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 32.0062, -31.9834, 31.9985, 32.0109, -31.9897, 31.9996, -31.9841, -31.9905 )
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="OccluderPolygon2D" id=2]
+
+closed = true
+cull_mode = 0
+polygon = Vector2Array( -32.0525, -31.8218, 32.0287, -32.048, 32.0174, 32.1807, -32.0454, 32.0425 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 32.0062, -31.9834, 31.9985, 32.0109, -31.9897, 31.9996, -31.9841, -31.9905 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 32.0062, -31.9834, 31.9985, 32.0109, -31.9897, 31.9996, -31.9841, -31.9905 )
@@ -27,7 +27,6 @@ points = Vector2Array( 32.0062, -31.9834, 31.9985, 32.0109, -31.9897, 31.9996, -
 
 [node name="Black" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 7.88669, -0.35849 )
 texture = ExtResource( 1 )
 region = true
@@ -35,9 +34,8 @@ region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Black"]
 
-editor/display_folded = true
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -56,7 +54,7 @@ trigger = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Black"]
 
-occluder = SubResource( 4 )
+occluder = SubResource( 2 )
 light_mask = 1
 
 [node name="Blue" type="Sprite" parent="."]
@@ -71,7 +69,7 @@ region_rect = Rect2( 64, 0, 64, 64 )
 
 transform/pos = Vector2( 0.0591469, -0.0189781 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -92,7 +90,7 @@ trigger = false
 
 transform/pos = Vector2( -0.0466194, -0.31036 )
 transform/scale = Vector2( 1.00213, 1 )
-occluder = SubResource( 4 )
+occluder = SubResource( 2 )
 light_mask = 1
 
 [node name="Teal" type="Sprite" parent="."]
@@ -107,7 +105,7 @@ region_rect = Rect2( 128, 0, 64, 64 )
 
 transform/pos = Vector2( -0.00419617, -0.00595474 )
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -128,7 +126,7 @@ trigger = false
 
 transform/pos = Vector2( 0.201523, -0.00120261 )
 transform/scale = Vector2( 0.996189, 1.00392 )
-occluder = SubResource( 4 )
+occluder = SubResource( 2 )
 light_mask = 1
 
 [node name="EmptySprite" type="Sprite" parent="."]

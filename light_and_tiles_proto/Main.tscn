@@ -1,26 +1,58 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://bg.png" type="Texture" id=1]
-[ext_resource path="res://Tiles.xml" type="TileSet" id=2]
-[ext_resource path="res://light.png" type="Texture" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://bg.png" type="Texture" id=2]
+[ext_resource path="res://Tiles.xml" type="TileSet" id=3]
+[ext_resource path="res://light.png" type="Texture" id=4]
+[ext_resource path="res://Detector.gd" type="Script" id=5]
+[ext_resource path="res://default_block.png" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
 
 [node name="Node2D" type="Node2D"]
 
+script/script = ExtResource( 1 )
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
+visibility/behind_parent = true
 transform/pos = Vector2( -7.40247, 1.85059 )
-color = Color( 0.839844, 0.839844, 0.839844, 1 )
+z/relative = false
+color = Color( 1, 1, 1, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
 transform/pos = Vector2( 637.288, 643.201 )
 transform/scale = Vector2( 10, 10 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Sprite"]
+
+transform/pos = Vector2( 0, -0.167019 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
 
 [node name="Colidable_Objects" type="TileMap" parent="."]
 
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell/size = Vector2( 64, 64 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -33,14 +65,37 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 393221, 1, 458756, 1, 458758, 1, 524292, 1, 524293, 1, 524295, 1, 589827, 1, 589829, 1, 589830, 1, 655362, 1, 655364, 1, 720899, 1 )
+tile_data = IntArray( 131079, 0, 196615, 0, 262151, 0, 327687, 0, 393223, 0, 458759, 0, 458761, 0, 524295, 0, 524296, 0, 524297, 0, 917507, 0, 917508, 0, 917519, 1 )
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="light_1" type="Node2D" parent="."]
 
-transform/pos = Vector2( 519.824, 449.401 )
+transform/pos = Vector2( 543.888, 481.273 )
+transform/scale = Vector2( 1, 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="light_1"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="light_1/StaticBody2D"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Emitter_1" type="Light2D" parent="light_1"]
+
 enabled = true
 editor_only = false
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -57,5 +112,16 @@ shadow/color = Color( 0, 0, 0, 0 )
 shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
+
+[node name="Detector_1" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 929.462, 161.664 )
+script/script = ExtResource( 5 )
+id = "light_1"
+
+[node name="Sprite" type="Sprite" parent="Detector_1"]
+
+texture = ExtResource( 6 )
 
 
