@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://clint_bellanger_rbga.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 8.73017
+
+[node name="Node2D" type="Node2D"]
+
+transform/pos = Vector2( -0.735077, -20.5826 )
+
+[node name="Floor Layer" type="TileMap" parent="."]
+
+mode = 1
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 192, 88 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = true
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -327676, 0, -327675, 0, -327674, 0, -327673, 0, -262141, 0, -262140, 0, -262139, 0, -262138, 0, -262137, 0, -262136, 0, -196606, 0, -196605, 0, -196604, 0, -196603, 0, -196602, 1, -196601, 0, -196600, 0, -196599, 0, -131070, 0, -131069, 0, -131068, 0, -131067, 0, -131066, 0, -131065, 0, -131064, 0, -131063, 0, -131062, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, -65530, 0, -65529, 0, -65528, 0, -65527, 0, -65526, 0, -65525, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 65538, 0, 65539, 0, 65540, 0, 65541, 0, 65542, 0, 65543, 0, 65544, 0, 65545, 0, 65546, 0, 65547, 0, 65548, 0, 131074, 0, 131075, 0, 131076, 0, 131077, 0, 131078, 0, 131079, 0, 131080, 0, 131081, 0, 131082, 0, 131083, 0, 131084, 0, 196610, 0, 196611, 0, 196612, 0, 196613, 0, 196614, 0, 196615, 0, 196616, 0, 196617, 0, 196618, 0, 196619, 0, 262147, 0, 262148, 0, 262149, 0, 262150, 0, 262151, 0, 262152, 0, 262153, 0, 262154, 0, 327684, 0, 327685, 0, 327686, 0, 327687, 0, 327688, 0, 327689, 0, 393221, 0, 393222, 0, 393223, 0, 393224, 0, 458758, 0, 458759, 0, 458760, 0 )
+
+[node name="Wall Layer" type="TileMap" parent="."]
+
+mode = 1
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 94, 43 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = true
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -393205, 5, -393204, 10, -393203, 10, -393202, 10, -393201, 10, -393200, 10, -393199, 10, -393198, 3, -327669, 9, -327662, 7, -262133, 9, -262126, 7, -196597, 9, -196590, 7, -131061, 9, -131054, 7, -65525, 9, -65518, 7, 11, 9, 18, 7, 65547, 9, 65554, 7, 131083, 9, 131085, 2, 131086, 2, 131087, 2, 131090, 7, 196619, 9, 196626, 7, 262155, 9, 262162, 7, 327691, 9, 327698, 7, 393227, 9, 393234, 7, 458763, 9, 458770, 7, 524299, 9, 524306, 7, 589835, 9, 589842, 7, 655371, 9, 655378, 7, 720907, 9, 720914, 6, 786443, 9, 786449, 7, 851979, 4, 851985, 7, 917516, 3, 917521, 7, 983053, 4, 983054, 8, 983055, 8, 983056, 8, 983057, 6 )
+
+[node name="PlayerController" type="KinematicBody2D" parent="Wall Layer"]
+
+transform/pos = Vector2( 129.464, 495.584 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.999945, -0.0104718, 0.01008, 0.962534, -1.70569, -22.1633 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 2 )
+
+[node name="Player" type="Sprite" parent="Wall Layer/PlayerController"]
+
+transform/pos = Vector2( 0.33168, -16.2993 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, -28 )
+region = true
+region_rect = Rect2( 0, 0, 48, 64 )
+
+[node name="PlayerCollisionCapsule" type="CollisionShape2D" parent="Wall Layer/PlayerController"]
+
+transform/pos = Vector2( -1.70569, -22.1633 )
+transform/rot = 0.6
+transform/scale = Vector2( 1, 0.962587 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Camera2D" type="Camera2D" parent="Wall Layer/PlayerController"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+visibility/visible = false
+color = Color( 0.116547, 0.120035, 0.148438, 1 )
+
+
