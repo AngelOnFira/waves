@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/light.png" type="Texture" id=2]
@@ -9,11 +9,21 @@
 [ext_resource path="res://assets/grad1.png" type="Texture" id=7]
 [ext_resource path="res://scripts/Detector.gd" type="Script" id=8]
 [ext_resource path="res://assets/Detector_Red.png" type="Texture" id=9]
+[ext_resource path="res://nodes/TextLabel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/the fall of a sparrow.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 35.7694, 34.4268 )
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 33
+extra_spacing/char = 1
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 11 )
 
 [node name="Root" type="Node2D"]
 
@@ -24,6 +34,8 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( 97.0358, 260.262 )
 
 [node name="Node2D" type="Node2D" parent="Lights"]
+
+transform/pos = Vector2( 0, 4.522 )
 
 [node name="Light2D" type="Light2D" parent="Lights/Node2D"]
 
@@ -245,7 +257,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 262145, 5, 262150, 5, 393211, 1, 393212, 1, 393213, 1, 393214, 1, 393215, 1, 327680, 1, 327681, 1, 327682, 1, 327683, 1, 327684, 1, 327685, 1, 327686, 1, 327687, 1, 327688, 1, 327689, 1, 327690, 1, 327691, 1, 327692, 1, 327693, 1, 327694, 1, 327695, 1, 327696, 1, 327697, 1, 327698, 1, 327699, 1, 327700, 1, 327701, 1, 327702, 1, 327703, 1, 327704, 1, 327705, 1, 327706, 1, 327707, 1, 327708, 1, 327709, 1, 327710, 1, 327711, 1, 327712, 1, 327713, 1, 327714, 1, 327715, 1, 327716, 1, 327717, 1, 327718, 1, 327719, 1, 327720, 1, 327721, 1, 458747, 1, 458748, 1, 458749, 1, 458750, 1, 458751, 1, 393216, 1, 393217, 1, 393218, 1, 393219, 1, 393220, 1, 393221, 1, 393222, 1, 393223, 1, 393224, 1, 393225, 1, 393226, 1, 393227, 1, 393228, 1, 393229, 1, 393230, 1, 393231, 1, 393232, 1, 393233, 1, 393234, 1, 393235, 1, 393236, 1, 393237, 1, 393238, 1, 393239, 1, 393240, 1, 393241, 1, 393242, 1, 393243, 1, 393244, 1, 393245, 1, 393246, 1, 393247, 1, 393248, 1, 393249, 1, 393250, 1, 393251, 1, 393252, 1, 393253, 1, 393254, 1, 393255, 1, 393256, 1, 393257, 1 )
+tile_data = IntArray( 393211, 1, 393212, 1, 393213, 1, 393214, 1, 393215, 1, 327680, 1, 327681, 1, 327682, 1, 327683, 1, 327684, 1, 327685, 1, 327686, 1, 327687, 1, 327688, 1, 327689, 1, 327690, 1, 327691, 1, 327692, 1, 327693, 1, 327694, 1, 327695, 1, 327696, 1, 327697, 1, 327698, 1, 327699, 1, 327700, 1, 327701, 1, 327702, 1, 327703, 1, 327704, 1, 327705, 1, 327706, 1, 327707, 1, 327708, 1, 327709, 1, 327710, 1, 327711, 1, 327712, 1, 327713, 1, 327714, 1, 327715, 1, 327716, 1, 327717, 1, 327718, 1, 327719, 1, 327720, 1, 327721, 1, 458747, 1, 458748, 1, 458749, 1, 458750, 1, 458751, 1, 393216, 1, 393217, 1, 393218, 1, 393219, 1, 393220, 1, 393221, 1, 393222, 1, 393223, 1, 393224, 1, 393225, 1, 393226, 1, 393227, 1, 393228, 1, 393229, 1, 393230, 1, 393231, 1, 393232, 1, 393233, 1, 393234, 1, 393235, 1, 393236, 1, 393237, 1, 393238, 1, 393239, 1, 393240, 1, 393241, 1, 393242, 1, 393243, 1, 393244, 1, 393245, 1, 393246, 1, 393247, 1, 393248, 1, 393249, 1, 393250, 1, 393251, 1, 393252, 1, 393253, 1, 393254, 1, 393255, 1, 393256, 1, 393257, 1 )
 
 [node name="Exit" parent="Non Collision Tiles" instance=ExtResource( 4 )]
 
@@ -302,6 +314,7 @@ shadow/item_mask = 1
 [node name="Orange_Light" type="Node2D" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 transform/pos = Vector2( 710.403, 691.332 )
 
 [node name="Light2D" type="Light2D" parent="Orange_Light"]
@@ -329,6 +342,7 @@ shadow/item_mask = 1
 [node name="Detector" type="Node2D" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 transform/pos = Vector2( 557.352, 655.6 )
 script/script = ExtResource( 8 )
 id = "Orange_Light"
@@ -379,6 +393,46 @@ shadow/color = Color( 0, 0, 0, 0 )
 shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
+
+[node name="Label" parent="." instance=ExtResource( 10 )]
+
+margin/left = 340.0
+margin/top = 415.0
+margin/right = 635.0
+margin/bottom = 455.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "It was dark"
+
+[node name="Label1" parent="." instance=ExtResource( 10 )]
+
+margin/left = 997.0
+margin/top = 414.0
+margin/right = 1292.0
+margin/bottom = 454.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "But they"
+
+[node name="Label2" parent="." instance=ExtResource( 10 )]
+
+margin/left = 1308.0
+margin/top = 417.0
+margin/right = 1603.0
+margin/bottom = 457.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "could hear"
+
+[node name="Label3" parent="." instance=ExtResource( 10 )]
+
+margin/left = 1632.0
+margin/top = 417.0
+margin/right = 1927.0
+margin/bottom = 457.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "the walls"
 
 [connection signal="body_enter" from="Non Collision Tiles/Exit" to="." method="_next_level"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/light.png" type="Texture" id=2]
@@ -9,6 +9,16 @@
 [ext_resource path="res://nodes/TriggerBlocks.tscn" type="PackedScene" id=7]
 [ext_resource path="res://nodes/DoorBody.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/grad1.png" type="Texture" id=9]
+[ext_resource path="res://nodes/TextLabel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/the fall of a sparrow.ttf" type="DynamicFontData" id=11]
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 33
+extra_spacing/char = 1
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 11 )
 
 [node name="Root" type="Node2D"]
 
@@ -85,7 +95,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 0, 3, 1, 3, 2, 3, 3, 3, 4, 3, 5, 3, 6, 3, 7, 3, 8, 3, 9, 3, 10, 3, 11, 3, 12, 3, 13, 3, 14, 3, 15, 3, 65536, 3, 65537, 3, 65538, 3, 65539, 3, 65540, 3, 65541, 3, 65542, 3, 65543, 3, 65544, 3, 65545, 3, 65546, 3, 65547, 3, 65548, 3, 65549, 3, 65550, 3, 65551, 3, 131072, 3, 131073, 3, 131074, 3, 131075, 3, 131076, 3, 131077, 3, 131078, 3, 131079, 3, 131080, 3, 131081, 3, 131082, 3, 131083, 3, 131084, 3, 131085, 3, 131086, 3, 131087, 3, 196608, 3, 196623, 3, 262144, 3, 262145, 3, 262146, 3, 262147, 5, 262148, 5, 262149, 5, 262150, 5, 262151, 5, 262152, 5, 262153, 5, 262154, 5, 262155, 5, 262156, 5, 262157, 3, 262158, 3, 262159, 3, 327680, 3, 327695, 3, 393216, 3, 393217, 3, 393218, 3, 393219, 3, 393220, 5, 393221, 5, 393222, 3, 393223, 5, 393224, 5, 393225, 3, 393226, 5, 393227, 5, 393228, 3, 393229, 3, 393230, 3, 393231, 3, 458752, 3, 458753, 3, 458754, 3, 458765, 3, 458766, 3, 458767, 3, 524288, 3, 524289, 3, 524290, 3, 524301, 3, 524302, 3, 524303, 3, 589824, 3, 589825, 3, 589826, 3, 589837, 3, 589838, 3, 589839, 3 )
+tile_data = IntArray( 0, 3, 1, 3, 2, 3, 3, 3, 4, 3, 5, 3, 6, 3, 7, 3, 8, 3, 9, 3, 10, 3, 11, 3, 12, 3, 13, 3, 14, 3, 15, 3, 65536, 3, 65537, 3, 65538, 3, 65539, 3, 65540, 3, 65541, 3, 65542, 3, 65543, 3, 65544, 3, 65545, 3, 65546, 3, 65547, 3, 65548, 3, 65549, 3, 65550, 3, 65551, 3, 131072, 3, 131073, 3, 131074, 3, 131075, 3, 131076, 3, 131077, 3, 131078, 3, 131079, 3, 131080, 3, 131081, 3, 131082, 3, 131083, 3, 131084, 3, 131085, 3, 131086, 3, 131087, 3, 196608, 3, 196623, 3, 262144, 3, 262145, 3, 262146, 3, 262147, 5, 262148, 5, 262149, 5, 262150, 5, 262151, 5, 262152, 5, 262153, 5, 262154, 5, 262155, 5, 262156, 5, 262157, 3, 262158, 3, 262159, 3, 327680, 3, 327695, 3, 393216, 3, 393217, 3, 393218, 3, 393219, 3, 393220, 5, 393221, 5, 393222, 5, 393223, 5, 393224, 5, 393225, 5, 393226, 5, 393227, 5, 393228, 3, 393229, 3, 393230, 3, 393231, 3, 458752, 3, 458753, 3, 458754, 3, 458765, 3, 458766, 3, 458767, 3, 524288, 3, 524289, 3, 524290, 3, 524301, 3, 524302, 3, 524303, 3, 589824, 3, 589825, 3, 589826, 3, 589837, 3, 589838, 3, 589839, 3 )
 
 [node name="PlayerBody" parent="Collision Tiles" instance=ExtResource( 6 )]
 
@@ -150,6 +160,26 @@ shadow/color = Color( 0, 0, 0, 0 )
 shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
+
+[node name="Label" parent="." instance=ExtResource( 10 )]
+
+margin/left = 279.0
+margin/top = 205.0
+margin/right = 574.0
+margin/bottom = 245.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "The light came back"
+
+[node name="Label1" parent="." instance=ExtResource( 10 )]
+
+margin/left = 526.0
+margin/top = 510.0
+margin/right = 821.0
+margin/bottom = 550.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "They went deeper"
 
 [connection signal="body_enter" from="Non Collision Tiles/Button" to="Collision Tiles/TriggerBlocks" method="_reveal"]
 

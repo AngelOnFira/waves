@@ -8,7 +8,8 @@ var shoutTime = -1
 
 func addBalls(var numBalls, var type):
 	#print(self.get_parent())
-	if (type == "WALK" and walkTime < 0 or type == "SHOUT" and shoutTime < 0):
+	if (type == "WALK" and walkTime < 0 or type == "SHOUT" and shoutTime < 0 and get_tree().get_current_scene().get_name().right(1) != "1"):
+		print(get_tree().get_current_scene().get_name().right(1))
 		if (type == "WALK"):
 			walkTime = rand_range(0.2, 0.35)
 		if (type == "SHOUT"):
