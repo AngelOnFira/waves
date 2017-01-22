@@ -80,7 +80,6 @@ shadow/item_mask = 1
 
 [node name="Floor" type="TileMap" parent="."]
 
-editor/display_folded = true
 mode = 0
 tile_set = ExtResource( 3 )
 cell/size = Vector2( 64, 64 )
@@ -123,7 +122,6 @@ _update_shape_index = 0
 
 [node name="Exit" type="Area2D" parent="Floor"]
 
-editor/display_folded = true
 transform/pos = Vector2( 928, 352 )
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
@@ -315,9 +313,9 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[connection signal="body_enter" from="Floor/Button" to="Walls/DoorBody" method="_button_pressed"]
-
 [connection signal="body_enter" from="Floor/Button" to="Walls/TriggerBlocks" method="_reveal"]
+
+[connection signal="body_enter" from="Floor/Button" to="Walls/DoorBody" method="_button_pressed"]
 
 [connection signal="body_enter" from="Floor/Exit" to="." method="_next_level"]
 

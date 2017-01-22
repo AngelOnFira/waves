@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://light.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://BlockTrigger.gd" type="Script" id=10]
 [ext_resource path="res://wall.png" type="Texture" id=11]
 [ext_resource path="res://grad1.png" type="Texture" id=12]
+[ext_resource path="res://Detector.gd" type="Script" id=13]
+[ext_resource path="res://Detector.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -48,23 +50,21 @@ polygon = Vector2Array( -32, -32, -32, 32, 32, 32, 32, -32 )
 
 script/script = ExtResource( 1 )
 
-[node name="Node2D 2" type="Node2D" parent="."]
+[node name="Lights" type="Node2D" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 97.0358, 260.262 )
 
-[node name="Node2D" type="Node2D" parent="Node2D 2"]
+[node name="Node2D" type="Node2D" parent="Lights"]
 
-editor/display_folded = true
-
-[node name="Light2D" type="Light2D" parent="Node2D 2/Node2D"]
+[node name="Light2D" type="Light2D" parent="Lights/Node2D"]
 
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 scale = 1.0
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.367188, 0.0129089, 0.0129089, 1 )
 energy = 1.0
 mode = 0
 range/height = 0.0
@@ -79,19 +79,18 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[node name="Node2D1" type="Node2D" parent="Node2D 2"]
+[node name="Node2D1" type="Node2D" parent="Lights"]
 
-editor/display_folded = true
 transform/pos = Vector2( 321.063, 4.522 )
 
-[node name="Light2D" type="Light2D" parent="Node2D 2/Node2D1"]
+[node name="Light2D" type="Light2D" parent="Lights/Node2D1"]
 
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 scale = 1.0
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.367188, 0.0129089, 0.0129089, 1 )
 energy = 1.0
 mode = 0
 range/height = 0.0
@@ -106,19 +105,18 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[node name="Node2D2" type="Node2D" parent="Node2D 2"]
+[node name="Node2D2" type="Node2D" parent="Lights"]
 
-editor/display_folded = true
 transform/pos = Vector2( 640.619, 4.522 )
 
-[node name="Light2D" type="Light2D" parent="Node2D 2/Node2D2"]
+[node name="Light2D" type="Light2D" parent="Lights/Node2D2"]
 
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 scale = 1.0
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.367188, 0.0129089, 0.0129089, 1 )
 energy = 1.0
 mode = 0
 range/height = 0.0
@@ -133,19 +131,18 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[node name="Node2D3" type="Node2D" parent="Node2D 2"]
+[node name="Node2D3" type="Node2D" parent="Lights"]
 
-editor/display_folded = true
 transform/pos = Vector2( 964.697, 3.01465 )
 
-[node name="Light2D" type="Light2D" parent="Node2D 2/Node2D3"]
+[node name="Light2D" type="Light2D" parent="Lights/Node2D3"]
 
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 scale = 1.0
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.367188, 0.0129089, 0.0129089, 1 )
 energy = 1.0
 mode = 0
 range/height = 0.0
@@ -160,19 +157,18 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[node name="Node2D4" type="Node2D" parent="Node2D 2"]
+[node name="Node2D4" type="Node2D" parent="Lights"]
 
-editor/display_folded = true
 transform/pos = Vector2( 1279.73, 4.52197 )
 
-[node name="Light2D" type="Light2D" parent="Node2D 2/Node2D4"]
+[node name="Light2D" type="Light2D" parent="Lights/Node2D4"]
 
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 scale = 1.0
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.367188, 0.0129089, 0.0129089, 1 )
 energy = 1.0
 mode = 0
 range/height = 0.0
@@ -187,19 +183,18 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[node name="Node2D5" type="Node2D" parent="Node2D 2"]
+[node name="Node2D5" type="Node2D" parent="Lights"]
 
-editor/display_folded = true
 transform/pos = Vector2( 1600.79, 4.52197 )
 
-[node name="Light2D" type="Light2D" parent="Node2D 2/Node2D5"]
+[node name="Light2D" type="Light2D" parent="Lights/Node2D5"]
 
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 scale = 1.0
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.367188, 0.0129089, 0.0129089, 1 )
 energy = 1.0
 mode = 0
 range/height = 0.0
@@ -214,19 +209,18 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[node name="Node2D6" type="Node2D" parent="Node2D 2"]
+[node name="Node2D6" type="Node2D" parent="Lights"]
 
-editor/display_folded = true
 transform/pos = Vector2( 1923.37, 7.53665 )
 
-[node name="Light2D" type="Light2D" parent="Node2D 2/Node2D6"]
+[node name="Light2D" type="Light2D" parent="Lights/Node2D6"]
 
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 scale = 1.0
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.367188, 0.0129089, 0.0129089, 1 )
 energy = 1.0
 mode = 0
 range/height = 0.0
@@ -241,18 +235,18 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[node name="Node2D7" type="Node2D" parent="Node2D 2"]
+[node name="Node2D7" type="Node2D" parent="Lights"]
 
 transform/pos = Vector2( 2241.41, 3.01465 )
 
-[node name="Light2D" type="Light2D" parent="Node2D 2/Node2D7"]
+[node name="Light2D" type="Light2D" parent="Lights/Node2D7"]
 
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 scale = 1.0
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.367188, 0.0129089, 0.0129089, 1 )
 energy = 1.0
 mode = 0
 range/height = 0.0
@@ -382,7 +376,6 @@ _update_shape_index = 0
 
 [node name="PlayerBody" type="KinematicBody2D" parent="Walls"]
 
-editor/display_folded = true
 transform/pos = Vector2( -268.722, 386 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
@@ -508,6 +501,16 @@ shadow/color = Color( 0, 0, 0, 0 )
 shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
+
+[node name="Detector" type="Node2D" parent="."]
+
+script/script = ExtResource( 13 )
+id = ""
+
+[node name="Sprite" type="Sprite" parent="Detector"]
+
+transform/pos = Vector2( 597.925, 397.503 )
+texture = ExtResource( 14 )
 
 [connection signal="body_enter" from="Floor/Button" to="Walls/DoorBody" method="_button_pressed"]
 

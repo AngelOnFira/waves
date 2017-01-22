@@ -9,11 +9,14 @@ var fade_reduce = 0.00001
 var timer = null
 const FLASH_START = 1
 
+func get_Object(id):
+	return get_node(id)
+
 func _next_level(body):
 	get_node("/root/GlobalController").set_scene("MainScene")
 
 func _fixed_process(delta):
-	print(fade_amount)
+	#print(fade_amount)
 	var s = get_node("Flash")
 	if s.get_energy() > 0.01:
 		s.set_energy(s.get_energy() - fade_amount)

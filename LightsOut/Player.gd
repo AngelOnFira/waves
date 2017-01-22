@@ -16,6 +16,7 @@ func _fixed_process(delta):
 	if (Input.is_action_pressed("move_right")):
 		dir += Vector2(1, 0)
 	
+	
 	if (dir != Vector2()):
 		dir = dir.normalized()
 	speed = speed.linear_interpolate(dir*MAX_SPEED, delta*ACCEL)
