@@ -9,7 +9,9 @@ var currentScene = null
 func set_scene(scenePath):
 	#get_tree().change_scene("res://"+scenePath+".tscn")
 	currentLevel	+= 1
+	
 	var level 		= min(max_level, currentLevel)
+	print("res://Level_"+str(level)+".tscn")
 	currentLevel 	= level
 	get_tree().change_scene("res://Level_"+str(level)+".tscn")
 	
