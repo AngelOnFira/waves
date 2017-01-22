@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://assets/Tiles.xml" type="TileSet" id=1]
+[ext_resource path="res://assets/exit.png" type="Texture" id=2]
+[ext_resource path="res://nodes/PlayerBody.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nodes/CanvasModulate.tscn" type="PackedScene" id=4]
+[ext_resource path="res://nodes/Flash.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Root" type="Node2D"]
+
+[node name="Non Collision Tiles" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
+
+[node name="Exit" type="Area2D" parent="Non Collision Tiles"]
+
+editor/display_folded = true
+transform/pos = Vector2( 545.677, 2127.51 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 2.46154, 0, 0, 2.46154, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Non Collision Tiles/Exit"]
+
+transform/scale = Vector2( 2.46154, 2.46154 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="Non Collision Tiles/Exit"]
+
+texture = ExtResource( 2 )
+
+[node name="Collision Tiles" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
+
+[node name="PlayerBody" parent="Collision Tiles" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2287.72, 837.226 )
+
+[node name="CanvasModulate" parent="." instance=ExtResource( 4 )]
+
+color = Color( 1, 1, 1, 1 )
+
+[node name="Flash" parent="." instance=ExtResource( 5 )]
+
+visibility/visible = false
+
+[connection signal="body_enter" from="Non Collision Tiles/Exit" to="." method="_next_level"]
+
+
