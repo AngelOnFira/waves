@@ -212,9 +212,9 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[connection signal="body_enter" from="Non Collision Tiles/Button" to="Collision Tiles/TriggerBlocks" method="_reveal"]
-
 [connection signal="body_enter" from="Non Collision Tiles/Button" to="Collision Tiles/DoorBody" method="_button_pressed"]
+
+[connection signal="body_enter" from="Non Collision Tiles/Button" to="Collision Tiles/TriggerBlocks" method="_reveal"]
 
 [connection signal="body_enter" from="Non Collision Tiles/Exit" to="." method="_next_level"]
 

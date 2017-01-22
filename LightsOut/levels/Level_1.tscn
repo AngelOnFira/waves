@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/light.png" type="Texture" id=2]
@@ -6,6 +6,16 @@
 [ext_resource path="res://nodes/Exit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://nodes/PlayerBody.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/grad1.png" type="Texture" id=6]
+[ext_resource path="res://nodes/TextLabel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/the fall of a sparrow.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 33
+extra_spacing/char = 1
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 8 )
 
 [node name="Root" type="Node2D"]
 
@@ -325,6 +335,26 @@ shadow/color = Color( 0, 0, 0, 0 )
 shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
+
+[node name="Label" parent="." instance=ExtResource( 7 )]
+
+margin/left = 663.0
+margin/top = 419.0
+margin/right = 958.0
+margin/bottom = 459.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "They kept"
+
+[node name="Label1" parent="." instance=ExtResource( 7 )]
+
+margin/left = 1007.0
+margin/top = 420.0
+margin/right = 1302.0
+margin/bottom = 460.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "walking"
 
 [connection signal="body_enter" from="Non Collision Tiles/Exit" to="." method="_next_level"]
 
