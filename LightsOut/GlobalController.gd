@@ -2,7 +2,7 @@ extends Node
 
 # This is run on startup :D
 const max_level = 2
-var currentLevel = 0
+var currentLevel = 1
 var currentScene = null
 
 # Taken primarily from games from scratch tutorial 6

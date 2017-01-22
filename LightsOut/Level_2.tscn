@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=22 format=1]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://light.png" type="Texture" id=2]
@@ -45,6 +45,11 @@ extents = Vector2( 10, 10 )
 closed = true
 cull_mode = 0
 polygon = Vector2Array( -32, -32, -32, 32, 32, 32, 32, -32 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 35.7694, 34.4268 )
 
 [node name="Root" type="Node2D"]
 
@@ -503,7 +508,8 @@ shadow/item_mask = 1
 
 [node name="Orange_Light" type="Node2D" parent="."]
 
-transform/pos = Vector2( 771.79, 390.536 )
+editor/display_folded = true
+transform/pos = Vector2( 710.403, 691.332 )
 
 [node name="Light2D" type="Light2D" parent="Orange_Light"]
 
@@ -529,13 +535,35 @@ shadow/item_mask = 1
 
 [node name="Detector" type="Node2D" parent="."]
 
+editor/display_folded = true
+transform/pos = Vector2( 557.352, 655.6 )
 script/script = ExtResource( 13 )
 id = "Orange_Light"
 
 [node name="Sprite" type="Sprite" parent="Detector"]
 
-transform/pos = Vector2( 597.925, 397.503 )
+transform/pos = Vector2( -1.67017, 1.67017 )
 texture = ExtResource( 14 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Detector"]
+
+transform/pos = Vector2( -1.58881, 1.58881 )
+input/pickable = false
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector/StaticBody2D"]
+
+shape = SubResource( 7 )
+trigger = false
+_update_shape_index = 0
 
 [connection signal="body_enter" from="Floor/Button" to="Walls/DoorBody" method="_button_pressed"]
 

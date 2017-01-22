@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://bg.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://light.png" type="Texture" id=4]
 [ext_resource path="res://Detector.gd" type="Script" id=5]
 [ext_resource path="res://default_block.png" type="Texture" id=6]
+[ext_resource path="res://bounce.gd" type="Script" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -29,26 +31,6 @@ transform/pos = Vector2( 637.288, 643.201 )
 transform/scale = Vector2( 10, 10 )
 texture = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="Sprite"]
-
-transform/pos = Vector2( 0, -0.167019 )
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 1, 1 )
-limit/left = -10000000
-limit/top = -10000000
-limit/right = 10000000
-limit/bottom = 10000000
-drag_margin/h_enabled = true
-drag_margin/v_enabled = true
-smoothing/enable = false
-smoothing/speed = 5.0
-drag_margin/left = 0.2
-drag_margin/top = 0.2
-drag_margin/right = 0.2
-drag_margin/bottom = 0.2
-
 [node name="Colidable_Objects" type="TileMap" parent="."]
 
 mode = 0
@@ -65,10 +47,12 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 131079, 0, 196615, 0, 262151, 0, 327687, 0, 393223, 0, 458759, 0, 458761, 0, 524295, 0, 524296, 0, 524297, 0 )
+tile_data = IntArray( 131072, 0, 131073, 0, 131074, 0, 131075, 0, 131076, 0, 131077, 0, 131078, 0, 131079, 0, 131080, 0, 131081, 0, 131082, 0, 131083, 0, 131084, 0, 131085, 0, 131086, 0, 131087, 0, 131088, 0, 131089, 0, 131090, 0, 131091, 0, 393216, 0, 393217, 0, 393218, 0, 393219, 0, 393220, 0, 393221, 0, 393222, 0, 393223, 0, 393224, 0, 393225, 0, 393226, 0, 393227, 0, 393228, 0, 393229, 0, 393230, 0, 393231, 0, 393232, 0, 393233, 0, 393234, 0, 393235, 0 )
 
 [node name="light_1" type="Node2D" parent="."]
 
+editor/display_folded = true
+visibility/visible = false
 transform/pos = Vector2( 543.888, 481.273 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="light_1"]
@@ -115,12 +99,47 @@ shadow/item_mask = 1
 [node name="Detector_1" type="Node2D" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( 929.462, 161.664 )
+visibility/visible = false
+transform/pos = Vector2( 755.166, 130.906 )
 script/script = ExtResource( 5 )
 id = "light_1"
 
 [node name="Sprite" type="Sprite" parent="Detector_1"]
 
 texture = ExtResource( 6 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 543.026, 822.49 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+
+transform/pos = Vector2( 94.2625, -180.96 )
+transform/scale = Vector2( 10, 10 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+
+texture = ExtResource( 8 )
 
 

@@ -22,7 +22,7 @@ func _fixed_process(delta):
 	
 	var space_state = get_world_2d().get_direct_space_state()
 	var ray_dict    = space_state.intersect_ray(from,to)
-	if( not ray_dict.empty()):
-		if( id == ray_dict.collider.get_parent().get_name()):
-			print("colliding")
+	#if( not ray_dict.empty()):
+		#if( id == ray_dict.collider.get_parent().get_name()):
+			#print("colliding")
 	
