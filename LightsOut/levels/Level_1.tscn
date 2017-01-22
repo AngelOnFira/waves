@@ -281,7 +281,7 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Flash" type="Light2D" parent="."]
 
-transform/pos = Vector2( 64, 384 )
+transform/pos = Vector2( -141.054, 400.404 )
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )
