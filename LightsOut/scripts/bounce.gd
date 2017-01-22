@@ -10,6 +10,7 @@ var speed = Vector2()
 func _fixed_process(delta):
 	
 	speed = speed.normalized()
+	get_node("Sprite").set_rot(speed.angle() + deg2rad(180))
 	var motion = speed*delta*SPEED
 	
 	

@@ -10,27 +10,27 @@ func _fixed_process(delta):
 	var dir = Vector2()
 	if (Input.is_action_pressed("move_up")):
 		dir += Vector2(0, -1)
-		get_node("PlayerSprite").set_rot(deg2rad(90))
 	if (Input.is_action_pressed("move_down")):
 		dir += Vector2(0, 1)
-		get_node("PlayerSprite").set_rot(deg2rad(270))
 	if (Input.is_action_pressed("move_left")):
 		dir += Vector2(-1, 0)
-		get_node("PlayerSprite").set_rot(deg2rad(180))
 	if (Input.is_action_pressed("move_right")):
 		dir += Vector2(1, 0)
-		get_node("PlayerSprite").set_rot(deg2rad(0))
 		
 	if(Input.is_action_pressed("ui_accept")):
-		get_node("Gen_balls_2").addBalls()
+		get_node("Gen_balls_2").addBalls(50, "SHOUT")
 		
-	
-	
 	if (dir != Vector2()):
 		dir = dir.normalized()
+		get_node("PlayerSprite").set_rot(dir.angle() + deg2rad(-90))
+		
 	speed = speed.linear_interpolate(dir*MAX_SPEED, delta*ACCEL)
 	var motion = speed*delta
-	motion = move(motion)	
+	if (int(abs(motion.x + motion.y)) >= 1):
+		print(abs(motion.x + motion.y))
+		get_node("Gen_balls_2").addBalls(int(floor(abs((motion.x + motion.y) / 2))), "WALK")
+		
+	motion = move(motion)
 	
 	if (is_colliding()):
 		var n = get_collision_normal()
