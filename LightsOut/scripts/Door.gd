@@ -4,8 +4,8 @@ extends KinematicBody2D
 # var a = 2
 # var b = "textvar"
 
-var openTexture = preload("res://open.png")
-var lockedTexture = preload("res://door.png")
+var openTexture = preload("res://assets/open.png")
+var lockedTexture = preload("res://assets/door.png")
 
 var old_collision_shape = 0 
 

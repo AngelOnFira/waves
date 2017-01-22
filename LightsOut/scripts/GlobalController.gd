@@ -1,20 +1,19 @@
 extends Node
 
 # This is run on startup :D
-const max_level = 2
-var currentLevel = 1
+const max_level = 3
+var currentLevel = 3
 var currentScene = null
 
 # Taken primarily from games from scratch tutorial 6
 func set_scene(scenePath):
 	#get_tree().change_scene("res://"+scenePath+".tscn")
-	currentLevel	+= 1
 	
 	var level 		= min(max_level, currentLevel)
 	print("res://Level_"+str(level)+".tscn")
 	currentLevel 	= level
-	get_tree().change_scene("res://Level_"+str(level)+".tscn")
-	
+	get_tree().change_scene("res://levels/Level_"+str(level)+".tscn")
+	currentLevel	+= 1
 
 func _ready():
 	# Called every time the node is added to the scene.
