@@ -18,6 +18,7 @@ func _fixed_process(delta):
 	if s.get_energy() > 0.01:
 		s.set_energy(s.get_energy() - fade_amount)
 		fade_amount += fade_reduce
+		s.set_scale(Vector2(max(s.get_scale().x - fade_amount*15,0), max(0, s.get_scale().x - fade_amount*15)))
 	#if s.get_scale().x > 0:
 	#	s.set_scale(Vector2(s.get_scale().x - fade_amount, s.get_scale().y - fade_amount))
 		
