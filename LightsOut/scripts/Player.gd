@@ -20,6 +20,9 @@ func _fixed_process(delta):
 	if (Input.is_action_pressed("move_right")):
 		dir += Vector2(1, 0)
 		get_node("PlayerSprite").set_rot(deg2rad(0))
+		
+	if(Input.is_action_pressed("ui_accept")):
+		get_node("Gen_balls_2").addBalls()
 	
 	
 	if (dir != Vector2()):
