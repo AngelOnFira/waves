@@ -9,7 +9,7 @@ extents = Vector2( 10, 10 )
 
 [node name="Exit" type="Area2D"]
 
-transform/pos = Vector2( 2336.31, 390.863 )
+transform/pos = Vector2( 37.0913, 36.4195 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 2.46154, 0, 0, 2.46154, 0, 0 )

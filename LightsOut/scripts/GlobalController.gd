@@ -1,8 +1,8 @@
 extends Node
 
 # This is run on startup :D
-const max_level = 3
-var currentLevel = 3
+const max_level = 4
+var currentLevel = 4
 var currentScene = null
 
 # Taken primarily from games from scratch tutorial 6
