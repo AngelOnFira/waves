@@ -23,6 +23,7 @@ func _fixed_process(delta):
 		
 	if(Input.is_action_pressed("ui_accept")):
 		get_node("Gen_balls_2").addBalls()
+		
 	
 	
 	if (dir != Vector2()):

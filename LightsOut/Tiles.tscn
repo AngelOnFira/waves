@@ -95,7 +95,6 @@ light_mask = 1
 
 [node name="Teal" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 162.151, 1.13062 )
 texture = ExtResource( 1 )
 region = true
@@ -121,13 +120,6 @@ build_mode = 0
 polygon = Vector2Array( -31.9841, -31.9905, -31.9897, 31.9996, 31.9985, 32.0109, 32.0062, -31.9834 )
 shape_range = Vector2( 0, 0 )
 trigger = false
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Teal"]
-
-transform/pos = Vector2( 0.201523, -0.00120261 )
-transform/scale = Vector2( 0.996189, 1.00392 )
-occluder = SubResource( 4 )
-light_mask = 1
 
 [node name="EmptySprite" type="Sprite" parent="."]
 
