@@ -35,7 +35,7 @@ func _ready():
 	set_fixed_process(true)
 	timer = Timer.new()
 	timer.connect("timeout", self, "flash")
-	timer.set_wait_time(2)
+	timer.set_wait_time(1)
 	add_child(timer)
 	timer.start()
 	print("Level 0 loaded")
