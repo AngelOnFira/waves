@@ -13,7 +13,7 @@ func _fixed_process(delta):
 	motion = move(motion)	
 	
 	var from = self.get_pos()
-	var to   = self.get_pos() + Vector2(self.speed.x+10,self.speed.y+10)
+	var to   = self.get_pos() + speed*20
 	
 	#print(from,to)
 	
@@ -25,10 +25,12 @@ func _fixed_process(delta):
 	var space_state = get_world_2d().get_direct_space_state()
 	var ray_dict    = space_state.intersect_ray(from,to)
 	if(not ray_dict.empty()):
-		if(abs(self.get_pos().distance_to(ray_dict.position)) < speed.length()):
+		print("collied")
+		if(abs(self.get_pos().distance_to(ray_dict.position)) < abs(speed.length()) + 1000):
 			speed = ray_dict.normal.reflect(speed)
 			print(speed)
 			print(abs(self.get_pos().distance_to(ray_dict.position)))
+	
 	#print(speed)
 	
 	
