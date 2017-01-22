@@ -9,7 +9,7 @@
 [ext_resource path="res://nodes/TextLabel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/the fall of a sparrow.ttf" type="DynamicFontData" id=8]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 
 font/size = 33
 extra_spacing/char = 1
@@ -368,7 +368,7 @@ margin/left = 663.0
 margin/top = 419.0
 margin/right = 958.0
 margin/bottom = 459.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "They kept"
 
@@ -378,7 +378,7 @@ margin/left = 1007.0
 margin/top = 420.0
 margin/right = 1302.0
 margin/bottom = 460.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "walking"
 
@@ -388,7 +388,7 @@ margin/left = 2464.0
 margin/top = 334.0
 margin/right = 2759.0
 margin/bottom = 374.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "And found stairs"
 
