@@ -1,8 +1,8 @@
 extends Node
 
 # This is run on startup :D
-var currentLevel = 5
-const max_level = 5
+var currentLevel = 6
+const max_level = 6
 
 var currentScene = null
 

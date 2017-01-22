@@ -3,21 +3,26 @@ extends Node2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var time = -1
+var walkTime = -1
+var shoutTime = -1
 
-
-func addBalls():
-	print(self.get_parent())
-	if(time < 0):
-		time = 5
-		for i in range(0,50):
+func addBalls(var numBalls, var type):
+	#print(self.get_parent())
+	if (type == "WALK" and walkTime < 0 or type == "SHOUT" and shoutTime < 0):
+		if (type == "WALK"):
+			walkTime = rand_range(0.2, 0.35)
+		if (type == "SHOUT"):
+			shoutTime = 5
+			
+		for i in range(0, numBalls):
 			var ball  = preload("res://nodes/Ball.tscn").instance()
 			ball.set_pos(get_parent().get_pos())
 			ball.avoid = self.get_parent()
 			get_parent().get_parent().call_deferred("add_child", ball)
 		
 func _fixed_process(delta):
-	time -= delta
+	walkTime -= delta
+	shoutTime -= delta
 		
 func _ready():
 	# Called every time the node is added to the scene.

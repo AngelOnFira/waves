@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=1]
 
-[ext_resource path="res://levelScripts/Level_4.gd" type="Script" id=1]
+[ext_resource path="res://levelScripts/Level_6.gd" type="Script" id=1]
 [ext_resource path="res://nodes/EditorLight.tscn" type="PackedScene" id=2]
 [ext_resource path="res://nodes/LightEmitter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/Tiles.xml" type="TileSet" id=4]
@@ -9,12 +9,12 @@
 [ext_resource path="res://nodes/CanvasModulate.tscn" type="PackedScene" id=7]
 [ext_resource path="res://nodes/Flash.tscn" type="PackedScene" id=8]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=1]
 
 bake_interval = 5.0
 _data = { "points":Vector2Array( 0, 0, 0, 0, 3.11938, -79.3554, 0, 0, 0, 0, -77.2434, 1005.54, 0, 0, 0, 0, -330.695, 393.548, 0, 0, 0, 0, -290.513, -60.8102, 0, 0, 0, 0, 9.30103, -113.355 ) }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -30,15 +30,16 @@ transform/pos = Vector2( 97.0358, 260.262 )
 [node name="EditorLight" parent="Lights" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 1510.74, 364.648 )
+editor_only = false
 
 [node name="Path2D" type="Path2D" parent="Lights"]
 
 transform/pos = Vector2( 92.726, 3.09085 )
-curve = SubResource( 2 )
+curve = SubResource( 1 )
 
 [node name="LightPath1" type="PathFollow2D" parent="Lights/Path2D"]
 
-transform/pos = Vector2( 3.11938, -79.3554 )
+transform/pos = Vector2( 3.11921, -79.3531 )
 transform/rot = -94.2364
 offset = 2504.49
 h_offset = 0.0
@@ -73,7 +74,7 @@ tile_data = IntArray( 7, 1, 8, 1, 9, 1, 65543, 1, 65544, 1, 65545, 1, 131079, 1,
 editor/display_folded = true
 transform/pos = Vector2( 545.677, 2127.51 )
 input/pickable = true
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 2.46154, 0, 0, 2.46154, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -84,7 +85,7 @@ angular_damp = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Non Collision Tiles/Exit"]
 
 transform/scale = Vector2( 2.46154, 2.46154 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -94,6 +95,7 @@ texture = ExtResource( 5 )
 
 [node name="Collision Tiles" type="TileMap" parent="."]
 
+transform/pos = Vector2( -153.657, 0 )
 mode = 0
 tile_set = ExtResource( 4 )
 cell/size = Vector2( 64, 64 )
@@ -119,6 +121,23 @@ transform/pos = Vector2( 539.076, 71.7544 )
 [node name="Flash" parent="." instance=ExtResource( 8 )]
 
 visibility/visible = false
+
+[node name="TextEdit" type="TextEdit" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 6.0
+margin/bottom = 6.0
+syntax_highlighting = false
+show_line_numbers = false
+highlight_all_occurrences = false
+caret/block_caret = false
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
 
 [connection signal="body_enter" from="Non Collision Tiles/Exit" to="." method="_next_level"]
 
