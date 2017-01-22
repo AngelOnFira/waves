@@ -99,7 +99,6 @@ shadow/item_mask = 1
 
 [node name="Detector_1" type="Node2D" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 755.166, 130.906 )
 script/script = ExtResource( 5 )
@@ -111,6 +110,7 @@ texture = ExtResource( 6 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 543.026, 822.49 )
 input/pickable = false
 collision/layers = 1

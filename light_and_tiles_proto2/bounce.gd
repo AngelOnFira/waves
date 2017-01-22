@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const SPEED = 500.0
 const ACCEL = 5.0
-var life 	= 2
+var life 	= 7
 
 var speed = Vector2()
 
