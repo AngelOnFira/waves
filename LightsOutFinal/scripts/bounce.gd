@@ -1,8 +1,11 @@
 extends KinematicBody2D
 
-const SPEED = 250.0
+export var SPEED = 250.0
 const ACCEL = 5.0
 var life 	= 4
+export var MAX_LIFE = 4
+export var MIN_LIFE = 4
+
 var avoid = self
 
 var speed = Vector2()
@@ -37,5 +40,5 @@ func _fixed_process(delta):
 	
 func _ready():
 	speed = Vector2(rand_range(-1,1),rand_range(-1,1))
-	life  = rand_range(4,7)
+	life  = rand_range(MIN_LIFE,MAX_LIFE)
 	set_fixed_process(true)

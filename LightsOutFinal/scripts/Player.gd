@@ -18,7 +18,7 @@ func _fixed_process(delta):
 		dir += Vector2(1, 0)
 		
 	if(Input.is_action_pressed("ui_accept")):
-		get_node("Gen_balls_2").addBalls(50, "SHOUT")
+		get_node("Gen_balls_2").addBalls(30, "SHOUT")
 		
 	if (dir != Vector2()):
 		dir = dir.normalized()
@@ -27,7 +27,7 @@ func _fixed_process(delta):
 	speed = speed.linear_interpolate(dir*MAX_SPEED, delta*ACCEL)
 	var motion = speed*delta
 	if (int(abs(motion.x + motion.y)) >= 1):
-		print(abs(motion.x + motion.y))
+		#print(abs(motion.x + motion.y))
 		get_node("Gen_balls_2").addBalls(int(floor(abs((motion.x + motion.y) / 2))), "WALK")
 		
 	motion = move(motion)
